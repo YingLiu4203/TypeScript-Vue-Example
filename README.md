@@ -2,6 +2,8 @@
 
 > A TypeScript Vue Project Example
 
+Base on the [Vue2 + TypeScript2 -- an introductory guide](https://herringtondarkholme.github.io/2016/10/03/vue2-ts2/) and [Jayway's Vue.js 2.0 workshop](https://jayway.github.io/vue-js-workshop/) and , this document descripts the steps to scaffold a TypeScript Vue project and add more components to create a structure for non-trivial projects.
+
 Build Setup
 
 ``` bash
@@ -15,7 +17,7 @@ npm run dev
 npm run build
 ```
 
-Base on the [Vue2 + TypeScript2 -- an introductory guide](https://herringtondarkholme.github.io/2016/10/03/vue2-ts2/) and [Jayway's Vue.js 2.0 workshop](https://jayway.github.io/vue-js-workshop/) and , this document descripts the steps to scaffold a TypeScript Vue project and add more components to make it a good fit for non-trivial project.
+The following are step-by-step instructions to create the project from scracth. 
 
 ## 1. Scaffold a Project 
 Run `npm install -g vue-cli` to install vue-client. If you already have it, run `npm update -g vue-cli` to update it to the latest version. You may need to use `sudo` to install it as a global package. 
