@@ -3,9 +3,8 @@
 </template>
 
 <script lang="ts">
-declare let require: any
 
-let ProductList = require('./components/ProductList').default
+import {ProductList} from './components'
 
 export default {
   name: 'app',
