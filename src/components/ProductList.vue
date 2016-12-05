@@ -19,7 +19,7 @@
   </table>
 </template>
 
-<script>
+<script lang="ts">
 declare let require: any
 import Vuex = require('vuex')
 

@@ -2,7 +2,7 @@
   <product-list></product-list>
 </template>
 
-<script>
+<script lang="ts">
 declare let require: any
 
 let ProductList = require('./components/ProductList').default

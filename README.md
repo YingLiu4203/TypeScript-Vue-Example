@@ -27,16 +27,16 @@ Run `vue init webpack my-project` to create a new project named `my-project`. To
 ### 1.1. Use TypeScript Instead of Babel
 We use TypeScript go generate all JavaScript ES5 code, therefore there is no need to to use Bable in this project. In `package.json`, remove all lines having a "babel" prefix. 
 
-Then install `typescript` and `vue-ts-loader` packages. Here we use `typescript@rc` for TypeScript 2.1 Release Candidate.  ``vue-ts-loader` works with `vue-loader` to process TypeScript code in a `vue` file. 
+Then install `typescript` and `ts-loader` packages. Here we use `typescript@rc` for TypeScript 2.1 Release Candidate.  `ts-loader` works with `vue-loader` to process TypeScript code in a `vue` file. 
 
 ```sh
 npm i -D typescript@rc
-npm i -D vue-ts-loader
+npm i -D ts-loader
 npm i
 ```
 
 ### 1.2. Config Webpack Loaders
-To use the `typescript` and `vue-ts-loader`, we need to configure both TypeScript and Webpack.
+To use the `typescript` and `ts-loader`, we need to configure both TypeScript and Webpack.
 
 ### 1.2.1. Config TypeScript
 Create a `tsconfig.json` file in the project root folder with the following contents: 
@@ -79,18 +79,25 @@ resolve: {
         exclude: /node_modules/
       },
 
-// 5. in "vue: {", add js loader and set esModule 
+// 5. in "vue: {", set esModule for typescript to work
 vue: {
-    loaders: merge(utils.cssLoaders({ sourceMap: useCssSourceMap }),
-      { js: 'vue-ts-loader' }),
+    loaders: utils.cssLoaders({ sourceMap: useCssSourceMap })
     // typescript use esModule
     esModule: true,
       // ... 
-}
+},
+
+// 6. append a ".ts" file to all ".vue" file thus typescript can preprocess the file
+ts: {
+  appendTsSuffixTo: [/\.vue$/]
+}Ï
+
 ```
 
 ## 2. Convert JavaScript Code to TypeScript 
 The good news is that Vue npm package comes with type definitions and we can have type checking and editing help. However, the import syntax is different in TypeScript. 
+
+For all the `.vue` file, change the `<script>` tag as `<script lang="ts">` for the `ts-loader` to work. 
 
 ### 2.1. Change Entry File
 Rename the file `src/main.js` as `src/main.ts` and edit it to have the following content: 
@@ -153,7 +160,7 @@ Then change the `App.vue` as the following to use the new product list component
   <product-list></product-list>
 </template>
 
-<script>
+<script lang="ts">
 declare let require: any
 
 let ProductList = require('./components/ProductList').default
@@ -302,7 +309,7 @@ new Vue({
 ```
 
 ### 5.6. Use the Store in ProductList Component
-Create a `<script> </script>` and add the following content `src/components/ProductList.vue` to get products data from the store using a computed property. 
+Create a `<script lang="ts"> </script>` and add the following content `src/components/ProductList.vue` to get products data from the store using a computed property. 
 
 ```ts
 declare let require: any

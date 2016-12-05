@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        loader: 'vue-ts',
+        loader: 'ts',
         include: projectRoot,
         exclude: /node_modules/
       },
@@ -67,8 +67,7 @@ module.exports = {
     ]
   },
   vue: {
-    loaders: merge(utils.cssLoaders({ sourceMap: useCssSourceMap }),
-      { js: 'vue-ts-loader' }),
+    loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
     // typescript use esModule
     esModule: true,
     postcss: [
@@ -76,5 +75,8 @@ module.exports = {
         browsers: ['last 2 versions']
       })
     ]
+  },
+  ts: {
+    appendTsSuffixTo: [/\.vue$/]
   }
 }
