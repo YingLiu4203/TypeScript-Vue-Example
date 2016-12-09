@@ -1,11 +1,11 @@
-declare let require: any
+import * as Vue from 'vue'
+import App from './App'
 
 import './styles/style.scss'
 
-import Vue = require('vue')
-let App = require('./App.vue').default
 import store from './store'
 
+/* eslint-disable no-new */
 new Vue({
   el: '#app',
   store,

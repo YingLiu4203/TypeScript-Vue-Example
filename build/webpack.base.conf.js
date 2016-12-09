@@ -1,7 +1,6 @@
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
-var merge = require('webpack-merge')
 var projectRoot = path.resolve(__dirname, '../')
 
 var env = process.env.NODE_ENV
@@ -24,6 +23,7 @@ module.exports = {
     extensions: ['', '.js', '.vue', '.ts'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
+      'vue$': 'vue/dist/vue.common.js',
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components')
@@ -68,7 +68,6 @@ module.exports = {
   },
   vue: {
     loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
-    // typescript use esModule
     esModule: true,
     postcss: [
       require('autoprefixer')({
@@ -76,6 +75,7 @@ module.exports = {
       })
     ]
   },
+  // 5. append a ".ts" file to all ".vue" file thus typescript can preprocess the file
   ts: {
     appendTsSuffixTo: [/\.vue$/]
   }

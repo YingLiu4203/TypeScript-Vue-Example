@@ -2,9 +2,9 @@
   <product-list></product-list>
 </template>
 
-<script lang="ts">
 
-import {ProductList} from './components'
+<script lang="ts">
+import ProductList from './components/ProductList'
 
 export default {
   name: 'app',

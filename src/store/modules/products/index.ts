@@ -25,7 +25,7 @@ const initialState = {
 
 export default {
   state: {
-    products: initialState.products
+    ...initialState
   },
   getters
 }

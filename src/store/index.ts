@@ -1,8 +1,7 @@
-declare let require: any
 declare let process: any
 
-import Vue = require('vue')
-import Vuex = require('vuex')
+import * as Vue from 'vue'
+import * as Vuex from 'vuex'
 
 import products from './modules/products'
 
