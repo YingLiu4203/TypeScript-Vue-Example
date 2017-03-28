@@ -2,7 +2,7 @@
 
 > A TypeScript Vue Project Example
 
-Base on the the [Jayway's Vue.js 2.0 workshop](https://jayway.github.io/vue-js-workshop/), this document describes the steps to scaffold a TypeScript Vue project and add more components to create a structure for non-trivial projects.
+Based on the the [Jayway's Vue.js 2.0 workshop](https://jayway.github.io/vue-js-workshop/), this document describes the steps to scaffold a TypeScript Vue project and add some components to create a structure for non-trivial projects.
 
 Build Setup
 
@@ -72,7 +72,7 @@ entry: {
 
 // 2. add resolve extensions for '.ts'
 resolve: {
-    extensions: ['', '.js', '.vue', '.ts'],
+    extensions: ['.js', '.vue', '.ts'],
     // ...
 }
 
